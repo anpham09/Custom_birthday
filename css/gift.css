@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.gift-box {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 1;
+}
+
+.gift-box:hover {
+    transform: scale(1.1);
+}
+
+.flash-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vmax;
+    height: 100vmax;
+    background: white;
+    opacity: 0;
+    border-radius: 50%;
+    z-index: 999;
+    pointer-events: none;
+    animation: flashOut 1s forwards;
+}
+
+@keyframes flashOut {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.5s;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 0.2s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+
