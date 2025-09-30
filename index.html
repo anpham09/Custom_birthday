@@ -3,12 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click on the gift</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap">
-    <link rel="stylesheet" href="./css/style.css">
+    <title>Custom Birthday Wishes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
+    <main class="app" role="main">
+        <section class="panel panel--form" data-screen="form">
+            <header class="hero">
+                <p class="eyebrow">Birthday wish builder</p>
+                <h1>Wrap their wish in a surprise</h1>
+                <p class="lead">Type the birthday person's name, hand them the screen, and let them tap the gift to reveal a personalised message.</p>
+            </header>
+
+            <form class="wish-form" aria-label="Birthday message generator" novalidate>
+                <label for="birthday-name" class="form-label">Who is celebrating today?</label>
+                <div class="input-group">
+                    <input id="birthday-name" name="name" type="text" placeholder="e.g. Priya" autocomplete="off" maxlength="40" required aria-describedby="name-help">
+                    <button type="submit" class="primary-btn">Create surprise</button>
+                </div>
+                <p id="name-help" class="form-help">We'll use their name inside the wish so it feels written just for them.</p>
+                <p class="form-error" role="alert" hidden>Please add a name so we can personalise the wish.</p>
+            </form>
+        </section>
+
+        <section class="panel panel--gift" data-screen="gift" hidden>
+            <div class="gift-card">
+                <p class="gift-intro">Hey <span data-recipient>friend</span>, tap the present to open your birthday surprise! 🎁</p>
+                <button type="button" class="gift-button" data-open-gift>
+                    <img src="./img/gift.png" alt="Wrapped gift ready to be opened">
+                </button>
+                <p class="gift-hint">(Tap the present when you're ready)</p>
+            </div>
+        </section>
+
+        <section class="panel panel--message" data-screen="message" hidden>
+            <article class="wish-card">
+                <header class="wish-header">
+                    <h2>Birthday wish for <span data-recipient>you</span></h2>
+                </header>
+                <p class="message" data-message></p>
+                <div class="actions">
+                    <button type="button" class="primary-btn" data-copy>Copy wish</button>
+                    <button type="button" class="secondary-btn" data-start-over>Make another</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="./js/app.js" defer></script>
 </body>
 </html>
